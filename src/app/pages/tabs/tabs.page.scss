@@ -1,0 +1,31 @@
+
+//--------------NAVBAR------------------
+ion-tab-bar ion-tab-button .navbar-icons {
+  color: #000000;
+  font-size: 25px;
+  transition: color 150ms ease;
+}
+
+ion-tab-bar ion-tab-button:hover .navbar-icons {
+  color: #a1a1ff;
+}
+
+ion-tab-bar ion-tab-button[aria-selected="true"] .navbar-icons {
+  color: var(--ion-color-primary);
+}
+
+
+
+ion-tab-bar ion-tab-button .navbar-text{
+    color: #000000;
+    font-size: 15px;
+    transition: color 150ms ease;
+}
+
+ion-tab-bar ion-tab-button:hover .navbar-text {
+  color: #a1a1ff;
+}
+
+ion-tab-bar ion-tab-button[aria-selected="true"] .navbar-text {
+  color: var(--ion-color-primary);
+}

@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, Input } from '@angular/core';
 import{FormsModule} from '@angular/forms';
 import {
   IonHeader,  IonToolbar, IonTitle, IonButtons, IonMenuButton,
@@ -10,6 +10,13 @@ import { homeOutline, settings, searchOutline, optionsOutline, listOutline, chev
 import { RouterLink } from '@angular/router';
 import { ListHeadingComponent } from '../components/list-heading/list-heading.component';
 import { BannerComponent } from "../components/banner/banner.component"; // ← path matters
+import { Category } from '../interfaces/category.interface';
+import { Recipe } from '../interfaces/recipe.interface';
+import { CategoryService } from '../services/category/category';
+import { RecipeService } from '../services/recipe/recipe';
+import { BannerService } from '../services/banner/banner.service';
+import { Banner } from '../interfaces/banner.interface';
+import { CategoriesComponent } from '../components/categories/categories.component';
 
 
 @Component({
@@ -23,11 +30,20 @@ import { BannerComponent } from "../components/banner/banner.component"; // ← 
     IonContent, IonSearchbar, IonButton, IonIcon, IonItem,
     // for [(ngModel)] on the searchbar: 
     FormsModule, ListHeadingComponent,
-    BannerComponent
+    BannerComponent, CategoriesComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePage {
+  private categoryService = inject(CategoryService);
+  private recipeService  = inject(RecipeService);
+  private bannerService = inject(BannerService);
+
+  banners = computed<Banner[]> (() => this.bannerService.getBanners());
+  categories = computed<Category[]>(() => this.categoryService.getCategories());
+  recipes   = computed<Recipe[]>(() => this.recipeService.getRecipes());
+  
+
   constructor() {
       addIcons({
         chevronDownOutline,

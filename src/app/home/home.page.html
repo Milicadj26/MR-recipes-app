@@ -54,7 +54,17 @@
     [buttonTitle]="'See all >'">
     </app-list-heading>
 
-    <app-banner></app-banner>
+    <app-banner 
+    [bannerImages] = "banners()" > 
+    </app-banner>
+
+
+    @if(categories().length > 0){
+      <app-list-heading [heading]="'Categories'"></app-list-heading>
+      <app-categories [categories] = "categories()"></app-categories>
+    }
+
+
   </div>
 
   

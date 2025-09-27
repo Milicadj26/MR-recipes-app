@@ -1,0 +1,17 @@
+<div class="container">
+  <swiper-container
+    slides-per-view="4"
+    space-between="12"
+    pagination="false"
+    style="display:block;width:100%;height:110px"
+  >
+    @for (c of categories(); track c.id) {
+      <swiper-slide>
+        <div class="cat-card">
+          <img [src]="c.image" alt="{{ c.name }}" />
+          <p class="small">{{ c.name }}</p>
+        </div>
+      </swiper-slide>
+    }
+  </swiper-container>
+</div>

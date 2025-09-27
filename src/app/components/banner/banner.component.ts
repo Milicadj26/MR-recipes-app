@@ -1,5 +1,6 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, input } from '@angular/core';
 import { IonicSlides} from '@ionic/angular/standalone';
+import { Banner } from 'src/app/interfaces/banner.interface';
 
 
 @Component({
@@ -12,12 +13,7 @@ import { IonicSlides} from '@ionic/angular/standalone';
 export class BannerComponent  implements OnInit {
 
   swiperModules = [IonicSlides];
-  bannerImages?: any[] = [
-    {id: '1', banner: 'assets/banners/1.png'},
-    {id: '2', banner: 'assets/banners/2.png'},
-    {id: '3', banner: 'assets/banners/3.png'},
-
-  ]; 
+  bannerImages = input<Banner[]>([]);
 
   constructor() { }
 

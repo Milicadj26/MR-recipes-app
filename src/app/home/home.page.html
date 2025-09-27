@@ -1,33 +1,66 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
     <ion-title>Recipe Hub</ion-title>
+    
+
     <ion-buttons slot="end">
       <ion-button fill="clear">
-        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h2 class-="big-text">What are we cooking today?</h2>
-  <div class="search-row">
-    <ion-searchbar
-    [(ngModel)]="query"
-    placeholder="Search"
-    show-clear-button="focus"
-    inputmode="search">
-    </ion-searchbar>
+  
 
-    <ion-button 
-      class="filter-button"
-      fill="outline"
-      (click)="toggleFilter()"
-      [style.outline]="filterOn ? '2px solid red' : 'none'">
-      <ion-icon name="options-outline"></ion-icon>
-    </ion-button>
+  <div class="container">
+
+    <h2 class-="big-text">What are we cooking today?</h2>
+    <div class="search-row">
+      <ion-searchbar
+      [(ngModel)]="query"
+      placeholder="Search"
+      show-clear-button="focus"
+      inputmode="search">
+      </ion-searchbar>
+
+      <ion-button 
+        class="filter-button"
+        fill="outline"
+        (click)="toggleFilter()"
+        [style.outline]="filterOn ? '2px solid red' : 'none'">
+        <ion-icon name="options-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="catbar">
+      <button class="catbtn"
+        *ngFor= "let c of categories"
+        [routerLink]="['/tabs/category', c.key]"
+        type="button">
+        <ion-icon [name]="c.icon" class="caticons"></ion-icon>
+        <span class="catlabel">{{c.label}}</span>
+        
+      </button>
+    </div>
+
+    <app-list-heading
+    [heading]="'Features'"
+    [buttonTitle]="'See all >'">
+    </app-list-heading>
+
+    <app-banner></app-banner>
   </div>
+
+  
+
+
+
 
  
 

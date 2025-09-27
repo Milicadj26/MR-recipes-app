@@ -1,0 +1,17 @@
+<swiper-container
+  slides-per-view="1"
+  space-between="12"
+  centered-slides="true"
+  pagination="true"
+  pagination-clickable="true"
+  pagination-dynamic-bullets="true"
+  grab-cursor="true"
+  simulate-touch="true"
+  allow-touch-move="true"
+>
+  @for (image of bannerImages; track $index) {
+    <swiper-slide>
+      <img [src]="image.banner" alt="featured" />
+    </swiper-slide>
+  }
+</swiper-container>

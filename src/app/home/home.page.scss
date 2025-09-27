@@ -14,10 +14,11 @@
 
 ion-button.filter-button{
   --border-color: var(--ion-color-primary);
+  --border-radius: 50px;
   border-width: 10px;
   --color: var(--ion-color-primary);
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
   padding-top: 5px;
   padding-bottom: 5px;
   height: 52px;
@@ -26,6 +27,47 @@ ion-button.filter-button{
 
 ion-button.filter-button:hover{
   --color: var(--ion-color-secondary);
+}
+
+ion-header{
+  height: 50px;
+  border-radius: 0 0 20px 20px;
+  ion-toolbar{
+    border-radius: 0 0 20px 20px;
+    ion-item{
+    --background: transparent;
+    }
+  }
+  
+}
+
+.nav-btn{
+  color: #0000;
+}
+
+
+ion-searchbar{
+  --border-radius: 24px;
+}
+
+//------------CATBAR--------------
+
+.catbar{
+  color: black;
+  display: flex; gap: 8px; overflow-x: auto; padding: 10px 0;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.catbtn{
+  display: grid; 
+  place-items: center;
+  gap: 6px;
+}
+
+ion-content{
+  .container{
+    margin: 0 1.5vh;
+  }
 }
 
 

@@ -1,0 +1,45 @@
+
+div {
+    padding-top: 15px;
+    width: 100%;
+}
+
+swiper-container {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    height: clamp(220px, 28vw, 240px);
+}
+
+swiper-container::part(bullet) {
+  background-color: rgb(185, 185, 185);
+  opacity: 1;
+  height: 0.9vh;
+  width: 0.9vh;
+  transform: scale(1);
+}   
+
+swiper-container::part(bullet-active) {
+  background: var(--ion-color-secondary);
+  height: 1.1vh;
+  width: 1.1vh;
+  transform: scale(1);
+}
+
+swiper-slide {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px; 
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+
+

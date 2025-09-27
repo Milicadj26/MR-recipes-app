@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+
 export const routes: Routes = [
   {
     path: 'home',
@@ -26,10 +27,20 @@ export const routes: Routes = [
       path: 'list',
       loadComponent: () => import('./pages/list/list.page').then( m => m.ListPage)
       },
+      {
+        path: 'category/:key',                                              // /tabs/category/breakfast
+        loadComponent: () => import('./pages/category-list/category-list.page')
+                            .then(m => m.CategoryListPage),
+      },
+
     ]
 
   },
 
   {path: '**', redirectTo: 'tabs/home'},
+  {
+    path: 'category-list',
+    loadComponent: () => import('./pages/category-list/category-list.page').then( m => m.CategoryListPage)
+  },
   
 ];

@@ -26,9 +26,11 @@ swiper-slide {
     object-fit: contain; 
 }
 .small { 
-    margin: 0; 
-    font-size: 15px; 
-    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: var(--ion-color-dark, #222);
+    margin: 0;
+    white-space: nowrap;
 }
 
 

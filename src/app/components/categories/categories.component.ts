@@ -1,6 +1,7 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject, input } from '@angular/core';
 import { Category } from 'src/app/interfaces/category.interface';
-import { IonicSlides, IonCol } from '@ionic/angular/standalone';
+import { IonicSlides, IonCol, IonThumbnail } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -12,6 +13,12 @@ import { IonicSlides, IonCol } from '@ionic/angular/standalone';
 export class CategoriesComponent  implements OnInit {
 
   categories = input<Category[]>([]);
+  private router = inject(Router);
+
+  open(c: Category, ev?: Event) {
+    ev?.stopPropagation?.();
+    this.router.navigate(['/tabs/category', c.key]);
+  }
 
   constructor() { }
 

@@ -1,0 +1,7 @@
+<swiper-container [slidesPerView]="1.8" [spaceBetween]="20" style="display:block;height:auto">
+  @for (r of recipes(); track r.id) {
+    <swiper-slide>
+      <app-recipe [item]="r"></app-recipe>
+    </swiper-slide>
+  }
+</swiper-container>

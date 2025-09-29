@@ -1,0 +1,137 @@
+/* --- HEADER ICONS --- */
+
+.icon-circle {
+  background-color: #b45253;
+  color: rgb(255, 255, 255);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  //box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+
+/* --- GALLERY --- */
+.hero {
+    height: 240px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    overflow: hidden;
+    background: #e9e9ec;
+
+  img, swiper-container, swiper-slide {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  img { object-fit: cover; }
+}
+
+/* --- BODY WRAPPER --- */
+.page {
+  padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+}
+
+/* --- TITLE --- */
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0 6px;
+
+  h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  
+
+  ion-chip {
+    --background: #fff;
+    --color: #ff6a33;
+    
+    
+    border: 1px solid #ff6a33;
+    border-radius: 12px;
+    height: 30px;
+    padding-inline: 10px;
+  }
+}
+
+/* --- time / difficulty / calories) --- */
+.meta {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 16px;
+  color: #8e8e93;
+  font-size: 12px;
+  border-bottom: 1px solid #efefef;
+  padding: 8px 0 12px;
+  margin-bottom: 8px;
+}
+
+/* --- SEGMENT TABS --- */
+.tabs {
+    z-index: 5;
+    margin: 10px 0 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 1px rgba(180, 129, 129, 0.75);
+    border-radius: 999px;
+  
+  --indicator-color: transparent;
+  /* optional: rounded buttons look */
+  ion-segment-button {
+    margin: 10px 10px 10px;
+    cursor: pointer;
+    --color-checked: #ffffff;
+    --background-checked: var(--accent, #ff6a33);
+    --border-radius: 999px;
+    text-transform: none;
+    font-weight: 600;
+  }
+}
+
+/* --- CARD-LIKE “PILL” ITEMS --- */
+.pill {
+  --background: #ffffff;
+  margin: 10px 0;
+  border: 2px solid #fcb53b;
+  border-radius: 14px;
+
+  ion-label h3 { font-weight: 600; }
+  ion-label p  { color: #8e8e93; margin-top: 4px; }
+}
+
+/* --- INSTRUCTION TEXT --- */
+.step-text {
+  white-space: pre-wrap;
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* --- SERVINGS POPOVER --- */
+.servings-pop {
+  position: fixed;
+  right: 16px;
+  top: 110px;
+  z-index: 20;
+  background: #573e3e;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .14);
+  display: grid;
+  gap: 2px;
+
+  button {
+    background: transparent;
+    border: 0;
+    padding: 8px 12px;
+    text-align: left;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  button:hover { background: #f7f7f7; }
+}

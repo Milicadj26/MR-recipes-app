@@ -1,0 +1,37 @@
+@if (item(); as r) {
+  <ion-card class="recipe-card" (click)="openDetail(r.id)">
+    <ion-thumbnail>
+      <ion-img [src]="r.image || fallback" (ionError)="onImgErr($event)"></ion-img>
+      <button
+        class="fav-btn"
+        type="button"
+        (click)="toggleFav(r.id, $event)"
+        [class.active]="favs.isFav(r.id)"
+        aria-label="Toggle favorite"
+        [attr.aria-pressed]="favs.isFav(r.id)">
+        <ion-icon [name]="favs.isFav(r.id) ? 'heart' : 'heart-outline'"></ion-icon>
+      </button>
+    </ion-thumbnail>
+
+    <ion-item lines="none" class="card-info">
+      <ion-label>
+        <ion-text color="dark"><strong>{{ r.name }}</strong></ion-text>
+        <p>
+          <ion-text color="medium">
+            {{ r.timeMinutes }} min
+            &nbsp;•&nbsp;
+            <span class="pill"
+                  [class.easy]="r.difficulty==='Easy'"
+                  [class.medium]="r.difficulty==='Medium'"
+                  [class.hard]="r.difficulty==='Hard'">
+              {{ r.difficulty }}
+            </span>
+            &nbsp;•&nbsp; {{ r.calories }} kcal
+          </ion-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+} @else {
+  <div style="font-size:11px;color:#999">no item passed</div>
+}

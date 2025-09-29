@@ -12,7 +12,7 @@ swiper-container {
 }
 
 swiper-container::part(bullet) {
-  background-color: rgb(185, 185, 185);
+  background-color: rgb(255, 255, 255);
   opacity: 1;
   height: 0.9vh;
   width: 0.9vh;
@@ -20,7 +20,7 @@ swiper-container::part(bullet) {
 }   
 
 swiper-container::part(bullet-active) {
-  background: var(--ion-color-secondary);
+  background: var(--ion-color-tertiary);
   height: 1.1vh;
   width: 1.1vh;
   transform: scale(1);

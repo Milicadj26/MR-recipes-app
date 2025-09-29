@@ -41,7 +41,7 @@
     <div class="catbar">
       <button class="catbtn"
         *ngFor= "let c of categories"
-        [routerLink]="['/tabs/category', c.key]"
+        (click)="openCategory(c.key, $event)"
         type="button">
         <ion-icon [name]="c.icon" class="caticons"></ion-icon>
         <span class="catlabel">{{c.label}}</span>
@@ -63,6 +63,16 @@
       <app-list-heading [heading]="'Categories'"></app-list-heading>
       <app-categories [categories] = "categories()"></app-categories>
     }
+
+  
+
+
+    @if(recipes().length > 0){
+      <app-list-heading heading="Recently added"></app-list-heading>
+      <app-recipe-list-horizon [recipes]="recipes()"></app-recipe-list-horizon>
+      
+    }
+
 
 
   </div>

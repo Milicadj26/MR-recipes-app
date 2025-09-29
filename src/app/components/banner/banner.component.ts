@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, input } from '@angular/core';
-import { IonicSlides} from '@ionic/angular/standalone';
+import { IonicSlides,} from '@ionic/angular/standalone';
 import { Banner } from 'src/app/interfaces/banner.interface';
 
 
@@ -7,6 +7,7 @@ import { Banner } from 'src/app/interfaces/banner.interface';
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss'],
+  imports: [],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

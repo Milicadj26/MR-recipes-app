@@ -7,10 +7,10 @@
   >
     @for (c of categories(); track c.id) {
       <swiper-slide>
-        <div class="cat-card">
-          <img [src]="c.image" alt="{{ c.name }}" />
+        <button class="cat-card" type="button" (click)="open(c, $event)">
+          <img [src]="c.image" [alt]="c.name" />
           <p class="small">{{ c.name }}</p>
-        </div>
+        </button>
       </swiper-slide>
     }
   </swiper-container>

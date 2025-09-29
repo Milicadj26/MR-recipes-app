@@ -1,0 +1,138 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="icon-circle" fill="clear">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-button>
+      <ion-button class="icon-circle" fill="clear" (click)="toggleFav()">
+        <ion-icon [name]="recipe?.isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- HERO / GALLERY -->
+  @if (recipe) {
+    <div class="hero">
+      @if (hasGallery()) {
+        <swiper-container pagination="true" loop="true">
+          @for (img of recipe!.images; track $index) {
+            <swiper-slide>
+              <img [src]="img" [alt]="recipe!.name" />
+            </swiper-slide>
+          }
+        </swiper-container>
+      } @else {
+        <img [src]="heroImage()" [alt]="recipe!.name" />
+      }
+    </div>
+
+    <!-- PAGE BODY -->
+    <div class="page">
+      <!-- Title + Servings -->
+      <div class="title-row">
+        <h1>{{ recipe.name }}</h1>
+
+        <ion-chip outline (click)="servingsOpen = !servingsOpen">
+          <ion-label>{{ recipe.servings || 1 }} Serving</ion-label>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </ion-chip>
+      </div>
+
+      <!-- Meta -->
+      <div class="meta">
+        <span>{{ recipe.time || '—' }}</span>
+        <span>{{ recipe.difficulty || 'Easy' }}</span>
+        <span>{{ recipe.calories ? recipe.calories + ' cal' : '—' }}</span>
+      </div>
+
+
+
+      <!--SEGMENTS-->
+
+      <ion-segment [value]="segment" class="tabs" name="segment">
+        <ion-segment-button value="Ingredients"  (click)="setSegment('Ingredients')">Ingredients</ion-segment-button>
+        <ion-segment-button value="Instructions" (click)="setSegment('Instructions')">Instructions</ion-segment-button>
+        <ion-segment-button value="Notes"        (click)="setSegment('Notes')">Notes</ion-segment-button>
+      </ion-segment>
+
+     
+
+
+      
+
+      <!-- INGREDIENTS -->
+      @if (segment === 'Ingredients') {
+        <ion-list lines="none">
+          @for (i of recipe.ingredients; track i) {
+            <ion-item class="pill">
+              <ion-label>
+                <h3>{{ i.name }}</h3>
+                @if (i.qty) { <p>{{ i.qty }}</p> }
+              </ion-label>
+            </ion-item>
+          }
+        </ion-list>
+      }
+
+      <!-- INSTRUCTIONS -->
+      @if (segment === 'Instructions') {
+        <ion-accordion-group multiple="true">
+          @for (s of recipe.steps; track s; let idx = $index) {
+            <ion-accordion [value]="idx">
+              <ion-item slot="header" class="pill">
+                <ion-label>
+                  <h3>{{ (idx + 1) | number:'2.0' }} {{ s.title }}</h3>
+                </ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <p class="step-text">{{ s.text }}</p>
+              </div>
+            </ion-accordion>
+          }
+        </ion-accordion-group>
+      }
+
+      
+
+      <!-- NOTES -->
+      @if (segment === 'Notes') {
+        <ion-list lines="none">
+          @for (n of recipe.notes; track n; let idx = $index) {
+            <ion-item class="pill">
+              <ion-label>
+                <h3>{{ (idx + 1) | number:'2.0' }} {{ n }}</h3>
+              </ion-label>
+            </ion-item>
+          }
+        </ion-list>
+      }
+    </div>
+  }
+
+  <!-- Simple servings popover -->
+  @if (servingsOpen) {
+    <div class="servings-pop">
+      @for (n of [1,2,3,4,5,6]; track n) {
+        <button (click)="setServings(n)">
+          {{ n }} Serving{{ n > 1 ? 's' : '' }}
+        </button>
+      }
+    </div>
+  }
+
+  <!-- Large title on scroll (optional) -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ recipe?.name || 'Recipe' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+

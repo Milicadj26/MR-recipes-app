@@ -1,0 +1,77 @@
+/* recipe.component.scss */
+.recipe-card {
+  padding: 8px 8px 0 8px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+ion-thumbnail {
+  width: 100%;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+ion-thumbnail.hero { position: relative; }
+
+ion-thumbnail.hero * { pointer-events: none; }
+
+ion-thumbnail.hero .fav-btn { pointer-events: auto; }
+
+
+ion-img, img {
+  width: 150%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  --background: transparent;
+}
+
+.pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: capitalize;
+  background: #eef2ff;
+  color: #374151;
+}
+.pill.easy   { background: #ecfdf5; color: #065f46; }
+.pill.medium { background: #fef3c7; color: #92400e; }
+.pill.hard   { background: #fee2e2; color: #991b1b; }
+
+
+ion-thumbnail.hero{
+    position: relative;
+}
+
+.fav-toggle{
+    position: absolute;
+    inset: -9999px auto auto -9999px;
+    
+}
+
+.fav-btn{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 999px;
+    background: rgb(102, 53, 34);
+    box-shadow: 0 4px 12px rgba(0,0,0,.18);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 6px 6px 0 0 ;
+}
+
+
+.fav-btn ion-icon { 
+    font-size: 20px; 
+}

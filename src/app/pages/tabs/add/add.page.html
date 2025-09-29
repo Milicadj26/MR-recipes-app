@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add recipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <!-- Basics -->
+    <ion-item>
+      <ion-label position="stacked">Name *</ion-label>
+      <ion-input formControlName="name" placeholder="e.g., Fluffy Pancakes"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image URL (optional)</ion-label>
+      <ion-input formControlName="image" placeholder="https://..."></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Time (minutes) *</ion-label>
+      <ion-input type="number" formControlName="timeMinutes"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Difficulty *</ion-label>
+      <ion-select formControlName="difficulty">
+        <ion-select-option value="Easy">Easy</ion-select-option>
+        <ion-select-option value="Medium">Medium</ion-select-option>
+        <ion-select-option value="Hard">Hard</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Calories</ion-label>
+      <ion-input type="number" formControlName="calories"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Servings</ion-label>
+      <ion-input type="number" formControlName="servings"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Favorite</ion-label>
+      <ion-toggle formControlName="isFavorite"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea formControlName="description" rows="3"></ion-textarea>
+    </ion-item>
+
+    <!-- Categories -->
+    <div class="block">
+      <h4>Categories</h4>
+      <ion-list lines="none">
+        @for (c of cats(); track c.key) {
+          <ion-item>
+            <ion-checkbox (ionChange)="toggleCategory(c.key, $event)"></ion-checkbox>
+
+            <ion-label class="ml">{{ c.name || c.label }}</ion-label>
+          </ion-item>
+        }
+      </ion-list>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="block">
+      <h4>Ingredients</h4>
+      <div formArrayName="ingredients">
+        @for (ctrl of ingredients.controls; let i = $index; track i) {
+          <div [formGroupName]="i">
+            <ion-item>
+              <ion-label position="stacked">Name</ion-label>
+              <ion-input formControlName="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Qty</ion-label>
+              <ion-input formControlName="qty"></ion-input>
+            </ion-item>
+
+            @if (ingredients.length > 1) {
+              <div class="row">
+                <ion-button fill="clear" color="medium" (click)="removeIngredient(i)">
+                  Remove
+                </ion-button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+      <ion-button expand="block" fill="outline" (click)="addIngredient()">+ Add ingredient</ion-button>
+    </div>
+
+    <!-- Steps -->
+    <div class="block">
+      <h4>Steps</h4>
+      <div formArrayName="steps">
+        @for (ctrl of steps.controls; let i = $index; track i) {
+          <div [formGroupName]="i">
+            <ion-item>
+              <ion-label position="stacked">Title</ion-label>
+              <ion-input formControlName="title"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Text</ion-label>
+              <ion-textarea formControlName="text" rows="3"></ion-textarea>
+            </ion-item>
+
+            @if (steps.length > 1) {
+              <div class="row">
+                <ion-button fill="clear" color="medium" (click)="removeStep(i)">
+                  Remove
+                </ion-button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+      <ion-button expand="block" fill="outline" (click)="addStep()">+ Add step</ion-button>
+    </div>
+
+    <ion-button expand="block" type="submit">Save recipe</ion-button>
+    <div style="padding-bottom: 100px;"></div>
+  </form>
+</ion-content>

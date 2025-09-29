@@ -35,3 +35,15 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 //@import '@ionic/angular/css/palettes/dark.system.css';
+
+/* DEV RESCUE – allow swiping and taps again */
+
+html, body, ion-app, ion-router-outlet { height: 100%; }
+
+body {
+  /* allow normal page scroll inside ion-content; remove hard lock */
+  overflow: auto;
+}
+
+
+

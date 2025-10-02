@@ -1,8 +1,9 @@
-/* recipe.component.scss */
+
 .recipe-card {
-  padding: 8px 8px 0 8px;
+  padding: 8px 8px 8px 8px;
   border-radius: 14px;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 
 ion-thumbnail {
@@ -34,7 +35,7 @@ ion-img, img {
 .pill {
   padding: 2px 8px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: capitalize;
   background: #eef2ff;
   color: #374151;

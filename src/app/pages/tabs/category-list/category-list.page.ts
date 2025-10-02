@@ -29,16 +29,16 @@ export class CategoryListPage {
   private recipesSrv = inject(RecipeService);
   private categoriesSrv = inject(CategoryService);
 
-  // URL /tabs/category/:key
+ 
   key = signal<string>('');
 
-  // Page title from category seed (label -> name -> fallback)
+ 
   title = computed(() => {
     const c = this.categoriesSrv.getByKey(this.key());
     return c?.label ?? c?.name ?? 'Category';
   });
 
-  // Base items (filter by key or id—supports categoryKey / categoryIds[] / categoryId)
+ 
   items = computed<Recipe[]>(() => {
     const all = this.recipesSrv.list();
     const cat = this.category();
@@ -48,14 +48,14 @@ export class CategoryListPage {
     const id  = cat.id;
 
     return all.filter((r: any) => {
-      // array of keys on the recipe
+ 
       if (Array.isArray(r?.categoryIds)) {
         const keys = r.categoryIds.map((x: any) => String(x).toLowerCase());
         if (keys.includes(key)) return true;
       }
-      // single key on the recipe
+     
       if (typeof r?.categoryKey === 'string' && r.categoryKey.toLowerCase() === key) return true;
-      // numeric id on the recipe
+    
       if (typeof r?.categoryId === 'number' && typeof id === 'number' && r.categoryId === id) return true;
 
       return false;
@@ -99,13 +99,13 @@ export class CategoryListPage {
     this.key.set(k);
     this.route.paramMap.subscribe((pm: ParamMap) => {
       this.key.set(pm.get('key') ?? '');
-      // console.debug('cat route key=', this.key());
+      
     });
   }
 
-  // pull-to-refresh (you can hook real reloads later)
+ 
   doRefresh(ev: CustomEvent) {
-    // If you fetch from API, call service here then complete:
+    
     setTimeout(() => (ev.target as HTMLIonRefresherElement).complete(), 300);
   }
 

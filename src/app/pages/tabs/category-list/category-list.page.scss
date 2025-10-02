@@ -4,12 +4,12 @@ ion-toolbar{
 
 
 
+
 .list {
   display: grid;
   gap: 20px;
 }
 
-/* keep some bottom space so tab bar doesn't overlap content */
 :host ::ng-deep ion-content {
   --padding-bottom: calc(56px + env(safe-area-inset-bottom));
 }

@@ -23,11 +23,10 @@ export class TabsPage {
       this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        // Whenever navigation happens inside /tabs,
-        // force refresh logic or re-init signals/services
+        
         if (event.url.startsWith('/tabs/')) {
           console.log('Refreshed after nav:', event.url);
-          // 👉 Here you can call services or trigger reload signals
+          
         }
       });
 

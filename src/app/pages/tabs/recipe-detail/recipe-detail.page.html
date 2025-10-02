@@ -11,13 +11,16 @@
       <ion-button class="icon-circle" fill="clear" (click)="toggleFav()">
         <ion-icon [name]="recipe?.isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
       </ion-button>
+      <ion-button class="icon-circle" fill="clear" color="danger" (click)="confirmDelete()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <!-- HERO / GALLERY -->
+  <!-- GALLERY -->
   @if (recipe) {
     <div class="hero">
       @if (hasGallery()) {

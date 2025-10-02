@@ -1,0 +1,73 @@
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title">Welcome Back!</ion-title>
+    <p class="subtitle">Sign in to access your account</p>
+  </div>
+
+  <form #logInForm="ngForm" (ngSubmit)="onLogIn(logInForm)">
+    <div class="ion-padding">
+
+      <!--EMAIL STUFF-->
+      <ion-item class="input-box">
+        <ion-input 
+        placeholder="Email" 
+        class="input"
+        type="email"
+        name="email"
+        ngModel
+        required
+        email
+        #email="ngModel">
+        </ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="warning" *ngIf="email?.invalid && email?.touched" lines="none">
+        <ion-label>Should be a valid email address.</ion-label>
+      </ion-item>
+
+
+      <!--PASSWORD-->
+      <ion-item class="input-box">
+        <ion-input 
+        type="password"
+        name="password"
+        ngModel
+        required
+        minlength="7"
+        #password="ngModel"
+        placeholder="Password" 
+        class="input">
+        </ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="warning" *ngIf="password?.invalid && password?.touched" lines="none">
+        <ion-label>Should be minimum 7 characters long.</ion-label>
+      </ion-item>
+
+
+
+      <!--FORGOT PASSQORD-->
+      <div class="forgotpassword">
+        <a [routerLink] = "['/reset-password']">Forgot password?</a>
+      </div>
+
+      <div class="signuplink">
+        <p>New member? <a [routerLink]="['/signup']">Sign up now</a></p>
+      </div>
+      
+    </div>
+    <ion-fab class="button" slot="fixed" vertical="bottom" horizontal="end" style="margin: 0 20px 20px 0;">
+      <ion-fab-button 
+      [disabled]="logInForm.invalid" 
+      (click)="onLogIn(logInForm)"
+      color="primary">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+
+
+
+  </form>
+</ion-content>

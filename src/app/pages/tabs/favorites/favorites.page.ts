@@ -27,7 +27,7 @@ export class FavoritesPage {
   // All favorites
   items = computed<Recipe[]>(() => this.recipesSrv.list().filter(r => !!r.isFavorite));
 
-  // Sorting (same as category page)
+  // Sorting them
   sortBy = signal<SortKey>('recent');
   sorted = computed<Recipe[]>(() => {
     const list = [...this.items()];

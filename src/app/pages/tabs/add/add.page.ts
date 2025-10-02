@@ -31,7 +31,7 @@ export class AddRecipePage {
   private categories = inject(CategoryService);
   private router = inject(Router);
 
-  // expects Category.key to be typed as CategoryID
+  //gets categs
   cats = computed(() => this.categories.list());
 
   form = this.fb.group({
@@ -43,7 +43,7 @@ export class AddRecipePage {
     servings: [1, [Validators.min(1)]],
     description: [''],
     isFavorite: [false],
-    categoryIds: this.fb.control<CategoryID[]>([]),   // ← union type, not string[]
+    categoryIds: this.fb.control<CategoryID[]>([]), 
     ingredients: this.fb.array([ this.fb.group({ name: [''], qty: [''] }) ]),
     steps: this.fb.array([ this.fb.group({ title: ['Step 1'], text: [''] }) ]),
   });
@@ -60,7 +60,6 @@ export class AddRecipePage {
   }
   removeStep(i: number) { this.steps.removeAt(i); }
 
-  // CLEANER way: typed to CategoryID; no casts in template
   toggleCategory(key: CategoryID, ev: CustomEvent) {
     const checked = (ev.detail as any).checked as boolean;
     const ctrl = this.form.get('categoryIds') as FormControl<CategoryID[]>;
@@ -96,9 +95,7 @@ export class AddRecipePage {
         title: s?.title?.trim() || 'Step',
         text: s?.text?.trim() || '',
       })),
-      // used by your "recent" sorting
-      // @ts-ignore
-      createdAt: new Date().toISOString(),
+      
     };
 
     this.recipes.add(newRecipe);

@@ -1,0 +1,7 @@
+{
+  "1": { "id": 1, "key": "breakfast", "name": "Breakfast", "label": "Breakfast", "image": "assets/categories/breakfast.png" },
+  "2": { "id": 2, "key": "lunch",     "name": "Lunch",     "label": "Midday meals", "image": "assets/categories/lunch.png" },
+  "3": { "id": 3, "key": "dinner",    "name": "Dinner",    "label": "Dinner", "image": "assets/categories/dinner.png" },
+  "4": { "id": 4, "key": "snacks",    "name": "Snacks",    "label": "Snacks", "image": "assets/categories/snacks.png" },
+  "5": { "id": 5, "key": "desserts",  "name": "Desserts",  "label": "Desserts", "image": "assets/categories/dessert.png" }
+}

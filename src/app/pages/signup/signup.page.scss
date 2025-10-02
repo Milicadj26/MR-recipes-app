@@ -1,0 +1,66 @@
+.ion-padding{
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+.input{
+    font-weight: 300;
+    color: #929292;
+}
+
+
+
+.input-box{
+        background: transparent;
+    }
+
+.header{
+    margin-top: 50%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.subtitle{
+    font-size: 16px;
+    font-weight: lighter;
+    color: #929292;
+
+}
+
+.forgotpassword{
+    display: flex;
+    justify-content: flex-end;
+
+    a{
+        text-decoration: none;
+    }
+
+}
+
+.signuplink{
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    align-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    p{
+        font-size: 16px;
+    }
+
+    a{
+        color: #fcb53b;
+        text-decoration: none;
+    }
+}
+

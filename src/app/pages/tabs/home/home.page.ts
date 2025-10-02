@@ -80,6 +80,8 @@ export class HomePage {
   this.filterOn = !this.filterOn;
  }
 
+ 
+
  openCategory(key: string, ev?: Event) {
     ev?.stopPropagation?.();
     this.router.navigate(['/tabs/category', key]);

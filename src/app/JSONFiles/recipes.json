@@ -1,0 +1,49 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Fluffy Pancakes",
+    "image": "assets/recipes/pancakes.jpg",
+    "images": ["assets/recipes/pancakes.jpg"],
+    "timeMinutes": 45,
+    "difficulty": "Easy",
+    "calories": 320,
+    "servings": 2,
+    "description": "Classic fluffy pancakes.",
+    "ingredients": [
+      { "name": "Flour", "qty": "2 cups" },
+      { "name": "Milk", "qty": "1½ cups" },
+      { "name": "Eggs", "qty": "2" }
+    ],
+    "steps": [
+      { "title": "Whisk dry", "text": "Combine flour, sugar, baking powder, salt." },
+      { "title": "Add wet", "text": "Whisk in milk and eggs." },
+      { "title": "Cook", "text": "Pan on medium; cook until golden." }
+    ],
+    "isFavorite": false,
+    "categoryIds": ["breakfast","lunch"],
+    "createdAt": "2025-01-01T09:00:00Z"
+  },
+  "2": {
+    "id": 2,
+    "name": "Chicken Avocado Salad",
+    "image": "assets/recipes/chicken-avocado.jpg",
+    "images": ["assets/recipes/chicken-avocado.jpg"],
+    "timeMinutes": 20,
+    "difficulty": "Easy",
+    "calories": 450,
+    "servings": 2,
+    "description": "Fresh salad with grilled chicken and avocado.",
+    "ingredients": [
+      { "name": "Chicken breast", "qty": "200 g, grilled" },
+      { "name": "Avocado", "qty": "1" },
+      { "name": "Lettuce", "qty": "2 cups" }
+    ],
+    "steps": [
+      { "title": "Prep", "text": "Slice chicken and avocado." },
+      { "title": "Toss", "text": "Combine with dressing." }
+    ],
+    "isFavorite": false,
+    "categoryIds": ["lunch","dinner"],
+    "createdAt": "2025-01-02T12:00:00Z"
+  }
+}

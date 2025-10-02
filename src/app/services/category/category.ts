@@ -8,7 +8,6 @@ import { categories as seed } from 'src/app/dummy-data/categories';
 export class CategoryService {
   private readonly _categories$ = new BehaviorSubject<Category[]>([...seed]);
 
-  // --- reads ---
   list$(): Observable<Category[]> {
     return this._categories$.asObservable();
   }

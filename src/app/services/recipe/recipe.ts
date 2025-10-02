@@ -86,7 +86,7 @@ export class RecipeService {
     this._recipes$.next(next);
   }
 
-  // Convenience
+  // Convenience for selecting
   toggleFavorite(id: number): boolean {
     const rec = this.getById(id);
     if (!rec) return false;

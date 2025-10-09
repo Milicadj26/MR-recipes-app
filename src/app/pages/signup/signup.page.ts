@@ -36,7 +36,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {}
 
   async onSignup(form: NgForm) {
-    // 1) basic validation
+   
     if (form.invalid) return;
     const { name, email, password, confirm } = form.value;
     if (password !== confirm) {
@@ -53,7 +53,7 @@ export class SignupPage implements OnInit {
     const loading = await this.loadingCtrl.create({ message: 'Creating account, wait a sec...' });
     await loading.present();
 
-    // 2) send ONLY what Firebase needs -
+    
     this.authService.register({ email, password }).subscribe({
       next: async () => {
         await loading.dismiss();

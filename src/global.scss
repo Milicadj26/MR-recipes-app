@@ -41,7 +41,6 @@
 html, body, ion-app, ion-router-outlet { height: 100%; }
 
 body {
-  /* allow normal page scroll inside ion-content; remove hard lock */
   overflow: auto;
 }
 

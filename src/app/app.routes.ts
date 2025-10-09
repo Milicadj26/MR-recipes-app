@@ -3,8 +3,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 
   { path: 'landing', loadComponent: () => import('./pages/landing/landing.page').then(m => m.LandingPage) },
-  { path: 'login',   loadComponent: () => import('./pages/login/login.page').then(m => m.LogInPage) },     // <-- verify path
-  { path: 'signup',  loadComponent: () => import('./pages/signup/signup.page').then(m => m.SignupPage) },  // <-- verify path
+  { path: 'login',   loadComponent: () => import('./pages/login/login.page').then(m => m.LogInPage) },     
+  { path: 'signup',  loadComponent: () => import('./pages/signup/signup.page').then(m => m.SignupPage) },  
   { path: 'reset-password', loadComponent: () => import('./pages/reset-password/reset-password.page').then(m => m.ResetPasswordPage) },
 
   {

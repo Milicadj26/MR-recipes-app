@@ -24,10 +24,10 @@ type SortKey = 'recent' | 'time' | 'calories' | 'difficulty';
 export class FavoritesPage {
   private recipesSrv = inject(RecipeService);
 
-  // All favorites
+  // all favorites
   items = computed<Recipe[]>(() => this.recipesSrv.list().filter(r => !!r.isFavorite));
 
-  // Sorting them
+  // sorting them
   sortBy = signal<SortKey>('recent');
   sorted = computed<Recipe[]>(() => {
     const list = [...this.items()];

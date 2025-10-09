@@ -24,7 +24,7 @@ export class CategoryService {
     return this.list().find(c => c.key === key);
   }
 
-  // --- writes (optional, if you need CRUD later) ---
+ 
   add(cat: Category): void {
     this._categories$.next([...this.list(), cat]);
   }
